@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSpectrum", "AudioSpectrum\AudioSpectrum.csproj", "{FE769D32-7B2F-4C76-A186-49A762CA9FB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		debug3|Any CPU = debug3|Any CPU
+		debug4|Any CPU = debug4|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.debug3|Any CPU.ActiveCfg = debug3|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.debug3|Any CPU.Build.0 = debug3|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.debug4|Any CPU.ActiveCfg = debug4|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.debug4|Any CPU.Build.0 = debug4|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE769D32-7B2F-4C76-A186-49A762CA9FB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

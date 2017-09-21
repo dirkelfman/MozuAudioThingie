@@ -1,0 +1,48 @@
+﻿<Window x:Class="AudioSpectrum.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:AudioSpectrum"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        x:Name="main"
+        Title="Spectrum Daemon" Height="230" Width="600" WindowStyle="ToolWindow" Topmost="{Binding ElementName=Alwaystp, Path=IsChecked}">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,-204,0" HorizontalAlignment="Left" Width="796">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Device:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="DeviceBox" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBlock Text="On/Off:" VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Center" Grid.Column="1" Margin="637,29,19,43"/>
+        <ToggleButton x:Name="BtnEnable" Content="Disable" Grid.Row="3" Margin="10,10,643,46" Click="BtnEnable_Click" Grid.ColumnSpan="2" IsChecked="true"/>
+        <local:Spectrum x:Name="Spectrum" Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" HorizontalAlignment="Center" Margin="304,5,64,23" Width="328"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.Column="1">
+            <TextBlock Text="L:" VerticalAlignment="Center" Margin="10,0"/>
+            <ProgressBar x:Name="PbL" Width="210" Height="15"/>
+            <TextBlock Text="R:" VerticalAlignment="Center" Margin="10,0"/>
+            <ProgressBar x:Name="PbR" Width="210" Height="15"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Center">
+            <TextBlock Text="Com Port:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="Comports" Width="120" VerticalAlignment="Center" Margin="5,0" DropDownOpened="Comports_DropDownOpened"/>
+            <CheckBox x:Name="CkbSerial" Content="Enable Serial output" VerticalAlignment="Center" Margin="5,0" Click="CkbSerial_Click"/>
+            <CheckBox x:Name="CkbDisplay" Content="Enable software display" VerticalAlignment="Center"  Margin="5,0" IsChecked="True" Click="CkbDisplay_Click"/>
+            <CheckBox x:Name="Alwaystp" Content="Always on top" VerticalAlignment="Center" IsChecked="False"/>
+
+
+        </StackPanel>
+        <TextBox x:Name="IpTextbox" KeyDown="IpTextbox_KeyDown" TextChanged="IpTextbox_TextChanged" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="10,55,0,0" Grid.Row="3" TextWrapping="Wrap" Text="172.19.65.95" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="VisBox" HorizontalAlignment="Left" Margin="10,2,0,0" Grid.Row="2" VerticalAlignment="Top" Width="143" Grid.ColumnSpan="2" SelectionChanged="VisBox_SelectionChanged"
+                  />
+        <Slider x:Name="ColorSlider"  TickFrequency="1" IsSnapToTickEnabled="True"  Grid.Column="1" HorizontalAlignment="Left" Margin="79,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="166" Maximum="255" Minimum="-255" Value="0"/>
+        <TextBlock x:Name="textBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="255,6,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding ElementName=ColorSlider, Path=Value}"/>
+        <xctk:ColorCanvas Name="ColorGuy" Grid.Column="1" Margin="62,0,392,2" Grid.Row="2" Grid.RowSpan="2" SelectedColorChanged="ColorGuy_SelectedColorChanged"/>
+
+    </Grid>
+</Window>

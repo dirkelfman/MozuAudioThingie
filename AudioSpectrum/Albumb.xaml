@@ -1,0 +1,26 @@
+﻿<Window x:Class="AudioSpectrum.Albumb"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AudioSpectrum"
+        mc:Ignorable="d"
+        Background="Black"
+        Title="Albumb" Height="300" Width="300">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        
+            <RowDefinition Height="*" />
+         
+        </Grid.RowDefinitions>
+
+        <Image x:Name="albumbImage" Grid.Row="1" >
+            <Image.Source>
+                <BitmapImage UriSource="https://www.petfinder.com/wp-content/uploads/2012/11/91615172-find-a-lump-on-cats-skin-632x475.jpg" />
+            </Image.Source>
+        </Image>
+        <Label x:Name="albumbTitle" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Content="food" Foreground="#FFFFFF" />
+
+    </Grid>
+</Window>
