@@ -233,7 +233,7 @@ namespace AudioSpectrum
             }
 
             _visBoz.SelectedIndex = _visBoz.Items.Count - 1;
-            Visuualizer = visualizers[0];
+            Visuualizer = visualizers[_visBoz.SelectedIndex];
 
             _devicelist.SelectedIndex = 0;
             Bass.BASS_SetConfig(BASSConfig.BASS_CONFIG_UPDATETHREADS, false);
@@ -256,15 +256,24 @@ namespace AudioSpectrum
                 SpotifyLocalAPI.RunSpotifyWebHelper();
                 Thread.Sleep(4000);
             }
-            if (!_spotify.Connect())
+            try
             {
-                Console.WriteLine("asdf");
+                if (!_spotify.Connect())
+                {
+                    Console.WriteLine("asdf");
+                }
+            }
+            catch( Exception ex)
+            {
+                MessageBox.Show("spotify error " + ex.Message);
+                
+                return;
             }
             _alb = new AudioSpectrum.Albumb();
             _alb.WindowState = WindowState.Maximized;
             var status = _spotify.GetStatus();
 
-            if (status.Track != null)
+            if (status?.Track != null)
             {
                 _spotify_OnTrackChange(null, new TrackChangeEventArgs() { NewTrack = status.Track });
             }
